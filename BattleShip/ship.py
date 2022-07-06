@@ -1,4 +1,6 @@
-
+        #find a method that compares each one element to the items on a list 
+        #find a way to print ship positions on a grid and an attacks log in the console
+        #find a way to differentiate hits from misses in log 
 
 
 class Ship: 
@@ -9,6 +11,7 @@ class Ship:
     
     def choose_position(self):
         self.is_vertical = True if int(input(f'Will your {self.hitpoints} hitpoint ship be (1)vertical or (2)horizontal?: ')) == 1 else False
+        occupied_tiles = []
         if self.is_vertical:
             new_key = input(f'Choose a number between 1-10 this is the column where your {self.hitpoints} hitpoint ship will be positioned: ' )
             letter_start = input('Choose a letter between a-j this will be the high point of the ship: ')
