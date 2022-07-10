@@ -2,12 +2,7 @@ from ship import Ship
 
 class Player: 
     def __init__(self) -> None:
-        self.carrier = Ship(5, 'Carrier')
-        self.battleship = Ship(4, 'Battleship') 
-        self.cruiser = Ship(3, 'Cruiser')
-        self.submarine =  Ship(3, 'submarine') 
-        self.destoryer = Ship(2, 'Destoyer')
-        self.fleet = [self.carrier, self.battleship, self.cruiser, self.submarine, self.destoryer]
+        self.fleet = [Ship(5, 'Carrier'), Ship(4, 'Battleship'), Ship(3, 'Cruiser'), Ship(3, 'submarine'), Ship(2, 'Destoyer')]
         self.attack_log = []
     
     def attack(self):
@@ -21,3 +16,4 @@ class Player:
                     print(f"You hit your oppoent's {ship.name}. Their {ship.name} has {ship.hitpoints} left.")
                 else:
                     print('You attack was a miss.')
+

@@ -17,5 +17,6 @@ def rest_game_board():
         print(row)
         row = ''
 
-show_top_of_board()
-rest_game_board()
+def print_board():
+    show_top_of_board()
+    rest_game_board()
