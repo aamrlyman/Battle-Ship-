@@ -22,18 +22,16 @@ class Ship:
         return coordinate
 
     def vertical_position(self, coordinate):
-        position = []
         occupied_tiles = []
         for index in range(self.letters.index(coordinate[0]), (self.hitpoints + self.letters.index(coordinate[0]))): 
             if any(filter(lambda c: ((self.letters[index] + str(coordinate[1])) == c), occupied_tiles)):
                 print(f'Your {self.name} cannot occupy the same space as another ship')
                 self.vertical_coordinate()
             else:
-                position.append(self.letters[index] + coordinate[1])
+                self.position.append(self.letters[index] + coordinate[1])
                 occupied_tiles.append(self.letters[index] + coordinate[1])
-            self.position = position
 
-        # else:
+    
         #     row_letter = input(f'choose a letter between a-j this is the row where your {self.name} will be positioned: ')
         #     number_start = int(input(f'Choose a number between 1-{11 - self.hitpoints} this will be the left-most point of your {self.name}: '))
         #     while number_start + self.hitpoints > 11:
