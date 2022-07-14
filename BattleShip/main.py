@@ -4,7 +4,7 @@ from fleet import Fleet
 
 fleet = Fleet()
 
-fleet.vertical_or_horizontal()
+fleet.choose_positions()
 
 
 # # ship = Ship(5, 'Carrier')

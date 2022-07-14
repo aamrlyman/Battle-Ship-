@@ -10,6 +10,6 @@ class Ship:
     def __init__(self, health, name) -> None:
         self.name = name
         self.hitpoints = int(health)
-        self.position = None
+        self.position = []
         
    
