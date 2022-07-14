@@ -4,7 +4,7 @@ class Player:
     def __init__(self) -> None:
         self.fleet = [Ship(5, 'Carrier'), Ship(4, 'Battleship'), Ship(3, 'Cruiser'), Ship(3, 'submarine'), Ship(2, 'Destoyer')]
         self.attack_log = []
-        self.occupied_tiles = [self.fleet[0].position, self.fleet[1].position, self.fleet[2].position, self.fleet[3].position, self.fleet[4].position] 
+        self.self.ship_positions = [self.fleet[0].position, self.fleet[1].position, self.fleet[2].position, self.fleet[3].position, self.fleet[4].position] 
     
 
     
