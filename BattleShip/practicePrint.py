@@ -1,5 +1,5 @@
-from fleet import Fleet
-Alphabet = ['a', 'b', 'c', 'e', 'f', 'g', 'h', 'i', 'j']
+
+Alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 coordinates_list = ['a1', 'e6','a4']
 
 def show_top_of_board():
@@ -23,9 +23,9 @@ def rest_game_board(list):
         row = ''
     print('')
 
-def print_board():
+def print_board(list):
     show_top_of_board()
-    rest_game_board(coordinates_list)
+    rest_game_board(list)
 
 
-print_board()
+# print_board()

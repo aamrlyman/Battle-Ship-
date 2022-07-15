@@ -1,7 +1,6 @@
-from calendar import c
-from re import template
-from wsgiref.validate import validator
 from ship import Ship
+import practicePrint
+
 
 class Fleet: 
     def __init__(self):
@@ -78,7 +77,7 @@ class Fleet:
 
     def choose_positions(self):
         for ship in self.ships_list:
-            
+            practicePrint.print_board(self.ship_positions)
             if self.vertical_or_horizontal(ship):
                 self.vertical_position(ship, self.vertical_coordinate(ship))
             else: 
