@@ -5,7 +5,7 @@ from ship import Ship
 
 class Fleet: 
     def __init__(self):
-        self.ships_list = [Ship(5, 'Carrier'), Ship(4, 'Battleship'), Ship(3, 'Cruiser'), Ship(3, 'submarine'), Ship(2, 'Destoyer')]
+        self.ships_list = [Ship(5, 'CARRIER'), Ship(4, 'BATTLESHIP'), Ship(3, 'CRUISER'), Ship(3, 'SUBMARINE'), Ship(2, 'DESTROYER')]
         self.ship_positions = []
         self.row_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
@@ -20,7 +20,7 @@ class Fleet:
 
     
     def vertical_coordinate(self, ship):
-        letter_start = input(f'Choose a letter between a-{self.row_letters[len(self.row_letters) - ship.hitpoints]} this will be the point of {ship.name} nearest the top of the game board: ')
+        letter_start = input(f'Choose a letter between a-{self.row_letters[len(self.row_letters) - ship.hitpoints]} this will be the point of your {ship.name} nearest the top of the game board: ')
         while letter_start.isalpha() == False or len(letter_start) > 1:
             print('Invalid entry. Must be a single letter.')
             letter_start = input(f'Choose a letter between a-{self.row_letters[len(self.row_letters) - ship.hitpoints]} this will be the point of {ship.name} nearest the top of the game board: ')
@@ -36,12 +36,12 @@ class Fleet:
 
     def vertical_position(self, ship, coordinate):
         temp_list = []
-        for index in range((self.row_letters.index(coordinate[0]) + 1), (ship.hitpoints + self.row_letters.index(coordinate[0]))): 
-            if any(filter(lambda c: ((self.row_letters[index] + str(coordinate[1])) == c), self.ship_positions)):
+        for index in range((self.row_letters.index(coordinate[0]) + 1), (ship.hitpoints + self.row_letters.index(coordinate[0]) + 1)): 
+            if any(filter(lambda c: ((self.row_letters[index -1] + str(coordinate[1])) == c), self.ship_positions)):
                 print(f'Your {ship.name} cannot occupy the same space as another ship')
                 self.vertical_coordinate(ship)
             else:
-                temp_list.append(self.row_letters[index] + str(index))
+                temp_list.append(self.row_letters[index -1] + coordinate[1])
         ship.position.extend(temp_list)
         self.ship_positions.extend(temp_list)
         temp_list = []
@@ -60,7 +60,7 @@ class Fleet:
     
     def horizontal_position(self, ship, coordinate):
             temp_list = []
-            for index in range(int(coordinate[1]), (ship.hitpoints + (int(coordinate[1]) - 1))): 
+            for index in range(int(coordinate[1]), ((ship.hitpoints) + (int(coordinate[1])))): 
                 if any(filter(lambda c: coordinate[0] + str(index) == c, self.ship_positions)):
                     print(f'Your {ship.name} cannot occupy the same space as another ship')
                     self.vertical_coordinate(ship)
@@ -78,6 +78,7 @@ class Fleet:
 
     def choose_positions(self):
         for ship in self.ships_list:
+            
             if self.vertical_or_horizontal(ship):
                 self.vertical_position(ship, self.vertical_coordinate(ship))
             else: 
